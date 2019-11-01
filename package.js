@@ -5,23 +5,19 @@ Package.describe({
 	name: 'yasinuslu:blaze-meta',
 });
 
-Package.on_use(function (api) {
+Package.onUse(function (api) {
+	api.use('ecmascript', 'client');
 	api.use('underscore', 'client');
 	api.use('tracker', 'client');
 	api.use('reactive-dict', 'client');
 	api.use('ui', 'client');
 	api.use('templating', 'client');
-
-	api.mainModule('lib/meta.js', 'client', { lazy: true });
-
-	// check if is this Meteor 0.9 and add 0.9 related code
-	if (api.versionsFrom) {
-		api.versionsFrom('METEOR@1.8.1');
-	}
+	api.mainModule('lib/meta.js', 'client');
+	api.versionsFrom('METEOR@1.8.1');
 });
 
-Package.on_test(function (api) {
-	api.use(['yasinuslu:blaze-meta', 'tinytest', 'test-helpers', 'underscore', 'jquery'], 'client');
+Package.onTest(function (api) {
+	api.use(['yasinuslu:blaze-meta', 'tinytest', 'test-helpers', 'underscore', 'jquery', 'ecmascript'], 'client');
 
 	api.addFiles('tests/test.js', 'client');
 });
