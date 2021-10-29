@@ -13,7 +13,7 @@ Package.onUse(function (api) {
 	api.use('ui', 'client');
 	api.use('templating', 'client');
 	api.mainModule('lib/meta.js', 'client');
-	api.versionsFrom('METEOR@1.8.1');
+	api.versionsFrom('METEOR@2.5');
 });
 
 Package.onTest(function (api) {
